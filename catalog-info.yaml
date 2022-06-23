@@ -73,6 +73,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  name: DevOps
   annotations:
     dev.azure.com/project-repo: puregym/"Infrastructure and tooling team"
 spec:
