@@ -78,5 +78,8 @@ metadata:
     dev.azure.com/project-repo: puregym/"Infrastructure and tooling team"
 spec:
   type: service
+  owner: production_support_-_sre_team
+  lifecycle: production
+  system: backstage
   
 ---
