@@ -22,7 +22,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: DevOps
+  name: DevOps2
   annotations:
     dev.azure.com/project: "Infrastructure and tooling team"
     dev.azure.com/build-definition: "PGG Tenant IAC"
