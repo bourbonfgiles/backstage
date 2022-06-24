@@ -7,7 +7,7 @@ metadata:
   annotations:
     dev.azure.com/project-repo: puregym/"Infrastructure and tooling team"
   links:
-    - url: https://dev.azure.com/Puregym/Infrastructure%20and%20tooling%20team
+  - url: https://dev.azure.com/Puregym/Infrastructure%20and%20tooling%20team
     title: "Infra and Tooling CI"
     icon: dashboard
 spec:
