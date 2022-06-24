@@ -1,14 +1,15 @@
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: API
+kind: Component
 metadata:
-  name: backstage-api
-  description: An example of a Backstage application.
+  name: DevOps
+  annotations:
+    dev.azure.com/project-repo: puregym/"Infrastructure and tooling team"
 spec:
-  type: website
+  type: service
   owner: production_support_-_sre_team
   lifecycle: production
   system: backstage
-  dependsOn:
-    - resource:devtools-ne-aks
+  
+---
