@@ -18,3 +18,22 @@ spec:
   system: backstage
   
 ---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: DevOps
+  annotations:
+    dev.azure.com/project: "Infrastructure and tooling team"
+    dev.azure.com/build-definition: "PGG Tenant IAC"
+  links:
+  - url: https://dev.azure.com/Puregym/Infrastructure%20and%20tooling%20team
+    title: "Infra and Tooling CI"
+    icon: dashboard
+spec:
+  type: service
+  owner: production_support_-_sre_team
+  lifecycle: production
+  system: backstage
+  
+---
