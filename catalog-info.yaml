@@ -5,7 +5,7 @@ kind: Component
 metadata:
   name: DevOps
   annotations:
-    dev.azure.com/project: "Infrastructure and tooling team"
+    dev.azure.com/project: "Infrastructure and tooling team Team"
     dev.azure.com/build-definition: "PGG Tenant IAC"
   links:
   - url: https://dev.azure.com/Puregym/Infrastructure%20and%20tooling%20team
