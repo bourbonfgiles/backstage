@@ -7,6 +7,7 @@ metadata:
   annotations:
     dev.azure.com/project: "Infrastructure and tooling team Team"
     dev.azure.com/build-definition: "PGG Tenant IAC"
+    jira/project-key: PG
   links:
   - url: https://dev.azure.com/Puregym/Infrastructure%20and%20tooling%20team
     title: "Infra and Tooling CI"
