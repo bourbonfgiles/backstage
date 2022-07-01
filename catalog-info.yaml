@@ -21,30 +21,23 @@ spec:
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: API
+kind: Component
 metadata:
-  name: infra-demo-api
-  links:
-    - url: https://demo.pureiac.com/api/v1
-      title: Root-API
-      icon: dashboard
+  name: Backstage-website
+  description: The backstage frontend interface
   annotations:
     backstage.io/techdocs-ref: dir:/docs
+  links:
+    - title: Backstage Prod
+      url: https://backstage.puregym.com
+    - title: Backstage Staging
+      url: https://backstage.puregymuk.dev
 spec:
-  type: openapi
-  lifecycle: experimental
-  owner: developers_-_platform_team
-  system: infrastructure-demo
-  definition: |
-    openapi: "3.0.0"
-    info:
-      version: 1.0.0
-      title: Test-API
-      license:
-        name: MIT
-    servers:
-      - url: http://demo.pureiac.com/api/v1
-    paths:
-      /test:
-        get:
-          summary: List all demo tests
+  type: website
+  owner: production_support_-_sre_team
+  lifecycle: production
+  system: backstage
+  dependsOn:
+    - resource:devtools-ne-aks
+  consumesApi:
+    - api:backstage-api
