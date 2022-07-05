@@ -1,6 +1,40 @@
 ---
 
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: backstage
+  description: Backstage collects data from Azure active directory and github to piece together how each part of puregym's system relate to one another
+spec:
+  owner: production_support_-_sre_team
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backstage-db
+  description: Postgres database storing entity relationships
+spec:
+  type: database
+  owner: production_support_-_sre_team
+  system: backstage
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backstage-kv
+  description: Keyvault containing secrets used in backstage configuration
+spec:
+  type: keyvault
+  owner: production_support_-_sre_team
+  system: backstage
+
+---
+
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: Backstage-website
@@ -12,6 +46,25 @@ metadata:
       url: https://backstage.puregym.com
     - title: Backstage Staging
       url: https://backstage.puregymuk.dev
+spec:
+  type: website
+  owner: production_support_-_sre_team
+  lifecycle: production
+  system: backstage
+  dependsOn:
+    - resource:devtools-ne-aks
+  consumesApi:
+    - api:backstage-api
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: backstage-api
+  description: An example of a Backstage application.
+  annotations:
+    backstage.io/techdocs-ref: dir:/docs
 spec:
   type: website
   owner: production_support_-_sre_team
