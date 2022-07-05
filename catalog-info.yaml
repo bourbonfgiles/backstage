@@ -1,23 +1,34 @@
 ---
-
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: System
 metadata:
-  name: DevOps
-  annotations:
-    dev.azure.com/project: "Infrastructure and tooling team Team"
-    dev.azure.com/build-definition: "PGG Tenant IAC"
-    jira/project-key: PG
-  links:
-  - url: https://dev.azure.com/Puregym/Infrastructure%20and%20tooling%20team
-    title: "Infra and Tooling CI"
-    icon: dashboard
+  name: backstage
+  description: Backstage collects data from Azure active directory and github to piece together how each part of puregym's system relate to one another
 spec:
-  type: service
   owner: production_support_-_sre_team
-  lifecycle: production
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backstage-db
+  description: Postgres database storing entity relationships
+spec:
+  type: database
+  owner: production_support_-_sre_team
   system: backstage
-  
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backstage-kv
+  description: Keyvault containing secrets used in backstage configuration
+spec:
+  type: keyvault
+  owner: production_support_-_sre_team
+  system: backstage
+
 ---
 
 apiVersion: backstage.io/v1alpha1
@@ -41,3 +52,32 @@ spec:
     - resource:devtools-ne-aks
   consumesApi:
     - api:backstage-api
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: backstage-api
+  description: An example of a Backstage application.
+  annotations:
+    backstage.io/techdocs-ref: dir:/docs
+spec:
+  type: website
+  owner: production_support_-_sre_team
+  lifecycle: production
+  system: backstage
+  dependsOn:
+    - resource:devtools-ne-aks
+
+---
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  annotations:
+    dev.azure.com/project-repo: puregym/"Infrastructure and tooling team"
+spec:
+  type: service
+  
+---
