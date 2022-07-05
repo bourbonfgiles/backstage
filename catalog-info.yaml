@@ -1,40 +1,6 @@
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: backstage
-  description: Backstage collects data from Azure active directory and github to piece together how each part of puregym's system relate to one another
-spec:
-  owner: production_support_-_sre_team
-
----
-
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: backstage-db
-  description: Postgres database storing entity relationships
-spec:
-  type: database
-  owner: production_support_-_sre_team
-  system: backstage
-
----
-
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: backstage-kv
-  description: Keyvault containing secrets used in backstage configuration
-spec:
-  type: keyvault
-  owner: production_support_-_sre_team
-  system: backstage
-
----
-
-apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: Backstage-website
@@ -61,18 +27,19 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: backstage-api
-  description: An example of a Backstage application.
+  name: spotify
+  description: The Spotify web API
+  tags:
+    - spotify
+    - rest
   annotations:
-    backstage.io/techdocs-ref: dir:/docs
+    # The annotation is deprecated, we use placeholders (see below) instead, remove it later.
+    backstage.io/definition-at-location: 'url:https://raw.githubusercontent.com/APIs-guru/openapi-directory/master/APIs/spotify.com/v1/swagger.yaml'
 spec:
-  type: website
-  owner: production_support_-_sre_team
+  type: openapi
   lifecycle: production
-  system: backstage
-  dependsOn:
-    - resource:devtools-ne-aks
+  owner: team-a
   definition:
-    $text: https://api.publicapis.org/entries  
+    $text: https://github.com/APIs-guru/openapi-directory/blob/dab6854d4d599aafb0eb36e6c7ae1fe0c37509b7/APIs/spotify.com/2021.4.2/openapi.yaml
 
 ---
