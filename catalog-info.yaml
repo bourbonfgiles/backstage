@@ -71,13 +71,3 @@ spec:
     - resource:devtools-ne-aks
 
 ---
-
-apiVersion: backstage.io/v1alpha1
-kind: Component
-metadata:
-  annotations:
-    dev.azure.com/project-repo: puregym/"Infrastructure and tooling team"
-spec:
-  type: service
-  
----
