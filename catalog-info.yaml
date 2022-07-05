@@ -72,5 +72,7 @@ spec:
   system: backstage
   dependsOn:
     - resource:devtools-ne-aks
+  definition:
+    $text: https://api.publicapis.org/entries  
 
 ---
