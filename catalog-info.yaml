@@ -8,6 +8,7 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:/docs
 spec:
+  definition: 
   type: website
   owner: production_support_-_sre_team
   lifecycle: production
