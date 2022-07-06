@@ -1,0 +1,30 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: infra-demo-api
+  links:
+    - url: https://demo.pureiac.com/api/v1
+      title: Root API
+      icon: dashboard
+  annotations:
+    backstage.io/techdocs-ref: dir:/docs
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: developers_-_platform_team
+  system: infrastructure-demo
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Test API
+      license:
+        name: MIT
+    servers:
+      - url: http://demo.pureiac.com/api/v1
+    paths:
+      /test:
+        get:
+          summary: List all demo tests
