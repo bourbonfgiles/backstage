@@ -4,10 +4,6 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: infra-demo-api
-  links:
-    - url: https://demo.pureiac.com/api/v1
-      title: Root API
-      icon: dashboard
   annotations:
     backstage.io/techdocs-ref: dir:/docs
     backstage.io/definition-at-location: 'url:https://raw.githubusercontent.com/APIs-guru/openapi-directory/master/APIs/spotify.com/v1/swagger.yaml'
