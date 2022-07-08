@@ -25,32 +25,12 @@ spec:
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: spotify
-  description: The Spotify web API
-  tags:
-    - spotify
-    - rest
-  annotations:
-    backstage.io/techdocs-ref: dir:/docs
-    backstage.io/definition-at-location: 'url:https://raw.githubusercontent.com/APIs-guru/openapi-directory/master/APIs/spotify.com/v1/swagger.yaml'
-spec:
-  type: openapi
-  lifecycle: production
-  owner: production_support_-_sre_team
-  definition:
-    $text: https://github.com/APIs-guru/openapi-directory/blob/dab6854d4d599aafb0eb36e6c7ae1fe0c37509b7/APIs/spotify.com/2021.4.2/openapi.yaml
-
----
-
-apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: Example-ADR
   description: An example ADR
   annotations:
-    backstage.io/adr-location: dir:/adrs
+    backstage.io/adr-location: ./adrs
 spec:
   type: adr
   owner: production_support_-_sre_team
