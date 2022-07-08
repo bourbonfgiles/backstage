@@ -50,7 +50,7 @@ metadata:
   name: Example-ADR
   description: An example ADR
   annotations:
-    backstage.io/adr-location: ./adrs
+    backstage.io/adr-location: /adrs
 spec:
   type: website
   owner: production_support_-_sre_team
