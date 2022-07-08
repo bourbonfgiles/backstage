@@ -45,14 +45,14 @@ spec:
 ---
 
 apiVersion: backstage.io/v1alpha1
-kind: Location
+kind: Component
 metadata:
   name: Example-ADR
   description: An example ADR
   annotations:
     backstage.io/adr-location: /adrs
 spec:
-  type: website
+  type: adr
   owner: production_support_-_sre_team
   lifecycle: production
   system: backstage
